@@ -14,7 +14,7 @@
 <body>
 <header>Ma super application</header>
 <nav>
-    <a href="{{route('index')}}">Accueil</a>
+    <a href="{{route('accueil')}}">Accueil</a>
     <a href="{{route('test-vite')}}">Test Vite</a>
     <a href="{{route('contact')}}">Contact</a>
 
@@ -30,9 +30,9 @@
         <a href="{{route("register")}}">Register</a>
     @endauth
 </nav>
-<main class="main-container">
+<main class="main">
     {{$slot}}
 </main>
-<footer>IUT de Lens</footer>
+<footer>IUT de Lens (cette page utilise les composants)</footer>
 </body>
 </html>
