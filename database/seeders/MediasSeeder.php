@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Enums\FormatMedia;
 use App\Models\Etape;
 use App\Models\Media;
 use Illuminate\Database\Seeder;
@@ -13,7 +14,7 @@ class MediasSeeder extends Seeder {
     public function run(): void {
         $medias = [
             "Europe du Nord" => "/storage/voyages/europe-nord.jpg",
-            'Lens' => "/storage/voyages/Lens.jpg",
+            'Lens1' => "/storage/voyages/Lens.jpg",
             'Bruxelles1' => "/storage/voyages/Bruxelles1.jpg",
             'Bruxelles2' => "/storage/voyages/Bruxelles2.jpg",
             'Anvers1' => "/storage/voyages/Anvers1.jpg",
@@ -46,11 +47,19 @@ class MediasSeeder extends Seeder {
                 continue;
             }
             //$nom = str_replace('.*([0-9]*)', '', $nom);
+            echo "$nom\n";
             Media::create([
                 'titre' => $nom,
-                'ref' => env('APP_URL').$url,
+                'url' => env('APP_URL').$url,
                 'etape_id' => Etape::where('titre', $nom)->first()->id,
             ]);
         }
+
+        Media::create([
+            'titre' => "Chant Supporteurs Lensois",
+            'url' => "https://www.youtube.com/watch?v=hLQiGBJgsNA",
+            'etape_id' => 1,
+            'format' => FormatMedia::SON
+        ]);
     }
 }

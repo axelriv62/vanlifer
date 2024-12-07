@@ -10,7 +10,7 @@ class Media extends Model {
 
     public $timestamps = false;
 
-    protected $fillable = ['titre', 'ref', 'format', 'etape_id'];
+    protected $fillable = ['titre', 'url', 'format', 'etape_id'];
 
     public function etape() {
         return $this->belongsTo(Etape::class);

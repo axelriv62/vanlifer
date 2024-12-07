@@ -23,7 +23,7 @@ class UsersSeeder extends Seeder {
         for ($i = 1; $i <= 10; $i++) {
             User::factory()->create([
                 'name' => $name = 'user' . $i,
-                'email' => "$$name@gmail.com",
+                'email' => "$name@gmail.com",
             ]);
         }
     }

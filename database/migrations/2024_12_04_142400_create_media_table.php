@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('media', function (Blueprint $table) {
             $table->id();
             $table->string('titre');
-            $table->string('ref');
+            $table->string('url');
             $table->enum("format", FormatMedia::toValuesArray())
                 ->default(FormatMedia::IMAGE);
             $table->foreignIdFor(Etape::class)
