@@ -15,7 +15,7 @@ class Voyage extends Model {
     ];
 
     public function editeur() {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, "user_id");
     }
 
     public function avis() {
@@ -26,6 +26,9 @@ class Voyage extends Model {
         return $this->belongsToMany(User::class, 'likes');
     }
 
+    public function etapes() {
+        return $this->hasMany(Etape::class, "voyage_id");
+    }
     public function casts() {
         return [
             'en_ligne' => 'boolean',

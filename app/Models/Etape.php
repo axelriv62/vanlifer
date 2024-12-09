@@ -20,6 +20,16 @@ class Etape extends Model {
         return $this->HasMany(Media::class);
     }
 
+    public function suivante() {
+        return Etape::whereRaw("voyage_id=? and debut=?", [$this->voyage_id, $this->fin])->first();
+    }
+
+
+    public function precedente() {
+        return Etape::whereRaw("voyage_id=? and fin=?", [$this->voyage_id, $this->debut])->first();
+    }
+
+
     public function casts() {
         return [
             'debut' => 'datetime',

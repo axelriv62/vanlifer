@@ -24,7 +24,7 @@ class VoyagesSeeder extends Seeder {
             Et quand j'essaie de faire court, il y a toujours quelqu'un pour rajouter des détails....",
             'continent' => "Europe",
             'en_ligne' => true,
-            'visuel' => env('APP_URL')."/storage/voyages/europe-nord.jpg",
+            'visuel' => env('APP_URL')."/storage/user1/europe-nord.png",
             'user_id' => 1,
         ]);
 

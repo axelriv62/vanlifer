@@ -46,11 +46,11 @@ class User extends Authenticatable {
     }
 
     public function mesVoyages() {
-        return $this->hasMany(Voyage::class);
+        return $this->hasMany(Voyage::class, "user_id");
     }
 
     public function avis() {
-        return $this->hasMany(Avis::class);
+        return $this->hasMany(Avis::class, "user_id");
     }
 
     public function likes() {
