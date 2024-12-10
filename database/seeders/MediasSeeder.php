@@ -13,7 +13,7 @@ class MediasSeeder extends Seeder {
      */
     public function run(): void {
         $medias = [
-            "Europe du Nord" => "/storage/user1/europe-nord.jpg",
+            "Europe du Nord" => "/storage/user1/europe-nord.png",
             'Lens1' => "/storage/user1/Lens.jpg",
             'Bruxelles1' => "/storage/user1/Bruxelles1.jpg",
             'Bruxelles2' => "/storage/user1/Bruxelles2.jpg",
@@ -57,9 +57,9 @@ class MediasSeeder extends Seeder {
 
         Media::create([
             'titre' => "Chant Supporteurs Lensois",
-            'url' => "https://www.youtube.com/watch?v=hLQiGBJgsNA",
+            'url' => "https://www.youtube.com/embed/T4I5xoQKnIo?si=pg-rp75lN35SZE9c",
             'etape_id' => 1,
-            'format' => FormatMedia::SON
+            'format' => FormatMedia::VIDEO
         ]);
     }
 }
