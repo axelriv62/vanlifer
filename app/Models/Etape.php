@@ -20,12 +20,12 @@ class Etape extends Model {
         return $this->HasMany(Media::class);
     }
 
-    public function suivante() {
+    public function suivant() {
         return Etape::whereRaw("voyage_id=? and debut=?", [$this->voyage_id, $this->fin])->first();
     }
 
 
-    public function precedente() {
+    public function precedent() {
         return Etape::whereRaw("voyage_id=? and fin=?", [$this->voyage_id, $this->debut])->first();
     }
 

@@ -50,7 +50,7 @@ class MediasSeeder extends Seeder {
             //echo "$nom\n";
             Media::create([
                 'titre' => $nom,
-                'url' => env('APP_URL'). "/user1/$url",
+                'url' => env('APP_URL'). "$url",
                 'etape_id' => Etape::where('titre', $nom)->first()->id,
             ]);
         }
