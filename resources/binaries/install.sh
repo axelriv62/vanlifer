@@ -14,7 +14,7 @@ else
 fi
 npm run build
 sudo fixRights $LOGNAME
-if [ - f .env ] ; then
+if [ -f .env ] ; then
     php artisan view:clear
     php artisan cache:clear
     php artisan config:clear
