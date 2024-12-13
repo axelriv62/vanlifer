@@ -14,7 +14,10 @@ else
 fi
 npm run build
 sudo fixRights $LOGNAME
-php artisan view:clear
-php artisan cache:clear
-php artisan config:clear
+if [ - f .env ] ; then
+    php artisan view:clear
+    php artisan cache:clear
+    php artisan config:clear
+fi
+
 echo "#end install"
