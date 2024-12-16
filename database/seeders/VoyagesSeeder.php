@@ -13,7 +13,7 @@ class VoyagesSeeder extends Seeder {
 
 
         Voyage::create([
-            'titre' => "Les grandes villes du nord de l'Europe proposé",
+            'titre' => "Les grandes villes du nord de l'Europe",
             'description' => "Quelques-unes des plus grandes villes du nord de l'Europe.
             J'adore voyager, mais j'ai un petit souci, je décris beaucoup trop les villes que je visite.
             Mais que vous, je ne peux m'en empêcher.
