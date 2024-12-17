@@ -1,5 +1,17 @@
-<x-test-layout>
+@extends("templates.app")
+
+<!-- ici je redéfini la section head du template général -->
+@section("head")
+    <!-- j'insère ce qu'il y a dans la section initial (c'est pas obligatoire) -->
+    <!-- j'ajout d'autres styles/js... -->
+    @parent
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Redacted+Script:wght@400">
+    @vite(['resources/css/test-vite.css', 'resources/js/test-vite.js'])
+@endsection
+
+@section('content')
     <div class="container">
+
         <h1>Test de Vite</h1>
         <img class="logo" src="{{Vite::asset('resources/images/logo.jpg')}}" alt="Logo">
         <h2>Ressource statique</h2>
@@ -67,5 +79,4 @@
         <p>Appeler comme résultat du traitement de la requête <code>/test-vite</code> qui utilise la vue
             <code>test-vite.blade.php</code> qui est le <i>slot</i> du composant <code>TestLayout</code>.</p>
     </div>
-</x-test-layout>
-
+@endsection
