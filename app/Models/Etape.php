@@ -36,4 +36,12 @@ class Etape extends Model {
             'fin' => 'datetime',
         ];
     }
+
+    public static function create(array $attributes)
+    {
+        $etape = new self($attributes);
+        $etape->save();
+        return $etape;
+    }
+
 }

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EtapeController;
 
 Route::get('/', function () {
     return view('index');
@@ -22,3 +23,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->name("dashboard") -> middleware('auth');
 
+
+
+Route::resource('etapes', EtapeController::class);
+Route::get('/etapes/{etape}/delete', [EtapeController::class, 'delete'])->name('etapes.delete');
