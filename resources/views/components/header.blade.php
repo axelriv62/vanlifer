@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VanLife</title>
+    <title>VanPy</title>
     @vite('resources/css/app.css')
 </head>
 <body>
@@ -13,14 +13,14 @@
     </div>
     <nav>
         <ul>
-            <li><a href="/">Voyage</a></li>
-            <li><a href="/about">Créer un voyage</a></li>
+            <li><a href="/voyage">Voyage</a></li>
+            <li><a href="/voyage/create">Créer un voyage</a></li>
         </ul>
     </nav>
     <nav>
         <ul>
-            <li><a href="/services">Connexion</a></li>
-            <li><a href="/contact">Inscription</a></li>
+            <li><a href="/register">Connexion</a></li>
+            <li><a href="/login">Créer un compte</a></li>
             <div class="logo">
                 <img src="{{ asset('storage/images/logo.jpg') }}" alt="Logo"><!-- Icône de connexion de l'utilisateur -->
             </div>
