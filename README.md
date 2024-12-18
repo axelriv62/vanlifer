@@ -1,6 +1,6 @@
 ## Invitation aux voyages
 
-Groupe power-rangers but24_groupe6
+Groupe but24_groupe6 - Power Rangers
 
 ## Version initiale
 
