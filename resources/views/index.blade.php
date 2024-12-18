@@ -7,7 +7,7 @@
     @vite('resources/css/app.css')
 </head>
 <body>
-@include('templates.header')
+@include('components.header')
 <main>
     <h1>Welcome to VanLife</h1>
     <p>Your adventure starts here.</p>
