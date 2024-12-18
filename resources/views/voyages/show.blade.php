@@ -19,14 +19,17 @@
     <div class="content">
         <section class="container etapes">
             @for ($i = 0; $i < min(4, $voyage->etapes->count()); $i++)
-                <!-- le nom de l'étape en fonction de l'étape -->
-
-                @php $etape = $voyage->etapes[$i]; @endphp
+                @php
+                    $etape = $voyage->etapes[$i];
+                    $firstImage = $etape->medias->where('format', 'image')->first();
+                    $colors = ['yellow', 'red', 'green'];
+                    $randomColor = $colors[array_rand($colors)];
+                @endphp
                 <div class="etape" id="e{{ $i + 1 }}">
-                    <p>{{ $etape->nom }}</p>
-                    <div class="image {{ $etape->couleur }}">
+                    <p>{{ $etape->titre }}</p>
+                    <div class="image {{ $randomColor }}">
                         <a href="{{ route('etapes.show', $etape) }}">
-                            <img src="{{ $etape->image_url ?? 'https://picsum.photos/id/237/200/300' }}" alt="{{ $etape->nom }}">
+                            <img src="{{ $firstImage ? $firstImage->url : 'https://picsum.photos/id/237/200/300' }}" alt="{{ $etape->nom }}">
                         </a>
                     </div>
                 </div>
