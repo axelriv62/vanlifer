@@ -11,7 +11,7 @@ class Voyage extends Model {
     public $timestamps = false;
 
     protected $fillable = [
-        'titre', 'description', 'resume', 'continent', 'user_id', 'en_ligne', 'visuel'
+        'titre', 'description', 'resume', 'user_id', 'en_ligne', 'visuel'
     ];
 
     public function editeur() {

@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\VoyageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EtapeController;
+
+// Routes données à l'origine
 
 Route::get('/', function () {
     return view('index');
@@ -23,7 +26,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->name("dashboard") -> middleware('auth');
 
-
+// Routes ajoutées
+Route::resource('voyages', VoyageController::class);
 
 Route::resource('etapes', EtapeController::class);
 Route::get('/etapes/{etape}/delete', [EtapeController::class, 'delete'])->name('etapes.delete');

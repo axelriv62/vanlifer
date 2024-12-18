@@ -12,9 +12,10 @@
 
     <!-- par défaut on charge ces css/js -->
     <!-- on peut étendre cette section, voir la vue test-vite.blade.php -->
-    @section("head")
+
         @vite(["resources/css/normalize.css", 'resources/css/app.css', 'resources/js/app.js'])
-    @show
+        @yield('style')
+
 </head>
 <body>
 <header>@include('components.menu')</header>

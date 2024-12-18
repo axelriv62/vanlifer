@@ -15,7 +15,6 @@ return new class extends Migration {
             $table->string('titre');
             $table->text('resume');
             $table->text('description');
-            $table->enum('continent', ["Afrique", "Amérique", "Asie", "Europe", "Océanie"]);
             $table->boolean("en_ligne")->default(false);
             $table->string('visuel')->nullable(env('APP_URL') . '/storage/images/arbre.jpg');
             $table->foreignIdFor(User::class)->constrained()->onUpdate('cascade')->onDelete('cascade');
