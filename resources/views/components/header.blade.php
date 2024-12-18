@@ -19,8 +19,8 @@
     </nav>
     <nav>
         <ul>
-            <li><a href="/register">Connexion</a></li>
-            <li><a href="/login">Créer un compte</a></li>
+            <li><a href="/login">Connexion</a></li>
+            <li><a href="/register">Créer un compte</a></li>
             <div class="logo">
                 <img src="{{ asset('storage/images/logo.jpg') }}" alt="Logo"><!-- Icône de connexion de l'utilisateur -->
             </div>
