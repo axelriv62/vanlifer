@@ -19,16 +19,14 @@
     <div class="content">
         <section class="container etapes">
             @for ($i = 0; $i < min(4, $voyage->etapes->count()); $i++)
-                @php
-                    $etape = $voyage->etapes[$i];
-                    $defaultImages = glob(public_path('storage/app/public/images/user1/*.{jpg,png,gif}'), GLOB_BRACE);
-                    $randomImage = !empty($defaultImages) ? asset('storage/app/public/images/user1/' . basename($defaultImages[array_rand($defaultImages)])) : asset('storage/images/default.jpg');
-                @endphp
+                <!-- le nom de l'étape en fonction de l'étape -->
+
+                @php $etape = $voyage->etapes[$i]; @endphp
                 <div class="etape" id="e{{ $i + 1 }}">
                     <p>{{ $etape->nom }}</p>
                     <div class="image {{ $etape->couleur }}">
                         <a href="{{ route('etapes.show', $etape) }}">
-                            <img src="{{ $etape->image_url ?? $randomImage }}" alt="{{ $etape->nom }}">
+                            <img src="{{ $etape->image_url ?? 'https://picsum.photos/id/237/200/300' }}" alt="{{ $etape->nom }}">
                         </a>
                     </div>
                 </div>
