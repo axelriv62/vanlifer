@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VanLife - Détails de l'étape</title>
-    @vite('resources/css/app.css')
-</head>
-<body>
-@include('components.menu')
+@extends('templates.app-layout')
+@section('content')
 <h1>Détails de l'étape</h1>
-<main>
-    <div>
+ <div>
         <strong>Titre:</strong>
         <p>{{ $etape->titre }}</p>
     </div>
@@ -30,7 +21,4 @@
         <strong>Fin:</strong>
         <p>{{ $etape->fin->format('d/m/Y') }}</p>
     </div>
-
-</main>
-</body>
-</html>
+@endsection

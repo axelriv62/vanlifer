@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VanLife - Index des étapes</title>
-    @vite('resources/css/app.css')
-</head>
-<body>
-@include('components.menu')
+@extends('templates.app-layout')
+@section('content')
 <h1>Index des étapes</h1>
-<main>
-    <table>
+ <table>
         <thead>
         <tr>
             <th>Titre</th>
@@ -28,6 +19,4 @@
         @endforeach
         </tbody>
     </table>
-</main>
-</body>
-</html>
+@endsection
