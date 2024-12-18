@@ -17,14 +17,14 @@
     @show
 </head>
 <body>
-
-<x-menu/>
+<header>@include('components.menu')</header>
 
 <main>
-    {{$slot}}
+    @yield('content')
 </main>
 
-<x-footer/>
+<footer>@include('components.footer')</footer>
+
 
 </body>
 </html>
