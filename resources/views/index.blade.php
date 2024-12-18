@@ -6,7 +6,7 @@
 @section('content')
     <section class="banner">
         <div class="content">
-            <img src="{{asset('storage/images/vanlife.webp')}}" alt="bannière">
+            <img src="{{Vite::asset('resources/images/vanlife.webp')}}" alt="bannière">
             <div class="text">
                 <h1>Bienvenue sur En aVan !</h1>
                 <p>L'aventure commence ici</p>
