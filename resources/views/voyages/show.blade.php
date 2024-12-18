@@ -1,36 +1,48 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VanLife - Détails de l'étape</title>
-    @vite('resources/css/app.css')
-</head>
-<body>
-@include('components.menu')
-<h1>Détails du voyage</h1>
-<main>
-    <div>
-        <strong>Titre:</strong>
-        <p>{{ $voyage->titre }}</p>
+@extends('templates.app-layout')
+
+@section('style')
+    @vite(['resources/css/voyage.css'])
+@endsection
+
+@section('content')
+    <section class="banner">
+        <p>{{$voyage->titre}}</p>
+        <img src="{{ $voyage->visuel }}" alt="{{ $voyage->titre }}">
+    </section>
+    <section class="description">
+        <img src="{{asset('storage/images/plaque.png')}}">
+        <div>
+            <h2><strong>Description:</strong></h2>
+            <p>{{ $voyage->description }}</p>
+        </div>
+    </section>
+    <div class="content">
+        <section class="container etapes">
+            <div class="etape" id="e1">
+                <p>Rome</p>
+                <div class="image red">
+                <img src="https://picsum.photos/id/237/200/300">
+                </div>
+            </div>
+            <div class="etape" id="e2">
+                <p>Rome</p>
+                <div class="image red">
+                    <img src="https://picsum.photos/id/237/200/300">
+                </div>
+            </div>
+            <div class="etape" id="e3">
+                <p>Rome</p>
+                <div class="image yellow">
+                    <img src="https://picsum.photos/id/237/200/300">
+                </div>
+            </div>
+            <div class="etape" id="e4">
+                <p>Rome</p>
+                <div class="image green">
+                    <img src="https://picsum.photos/id/237/200/300">
+                </div>
+            </div>
+        </section>
     </div>
-    <div>
-        <strong>Résumé:</strong>
-        <p>{{ $voyage->resume }}</p>
-    </div>
-    <div>
-        <strong>Description:</strong>
-        <p>{{ $voyage->description }}</p>
-    </div>
-    <div>
-        <strong>Continent:</strong>
-        <p>{{ $voyage->continent }}</p>
-    </div>
-    <div>
-        <strong>En ligne:</strong>
-        <p>{{ $voyage->en_ligne ? 'Oui' : 'Non' }}</p>
-    </div>
-    <img src="{{ $voyage->visuel }}" alt="{{ $voyage->titre }}">
-</main>
-</body>
-</html>
+
+@endsection
