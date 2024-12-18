@@ -15,7 +15,7 @@ class VoyageController extends Controller
     }
 
     public function show($id) {
-        $voyage = Voyage::findorFail($id);
+        $voyage = Voyage::findOrFail($id);
         return view('voyages.show', compact('voyage'));
     }
 
@@ -47,7 +47,7 @@ class VoyageController extends Controller
     }
 
     public function edit($id) {
-        $voyage = Voyage::findorFail($id);
+        $voyage = Voyage::findOrFail($id);
         return view('voyages.edit', compact('voyage'));
     }
 
@@ -59,7 +59,7 @@ class VoyageController extends Controller
             'visuel' => 'nullable|file|mimes:jpg,png,jpeg',
         ]);
 
-        $voyage = Voyage::findorFail($id);
+        $voyage = Voyage::findOrFail($id);
         $voyage->titre = $validated['titre'];
         $voyage->description = $validated['description'];
         $voyage->resume = $validated['resume'];
@@ -70,6 +70,24 @@ class VoyageController extends Controller
         }
 
         $voyage->save();
+        return redirect()->route('voyages.show', $voyage->id);
+    }
+
+    public function destroy($id) {
+        $voyage = Voyage::findOrFail($id);
+        $voyage->delete();
+        return redirect()->route('voyages.index');
+    }
+
+    public function like($id) {
+        $voyage = Voyage::findOrFail($id);
+        $voyage->likes()->attach(auth()->id());
+        return redirect()->route('voyages.show', $voyage->id);
+    }
+
+    public function unlike($id) {
+        $voyage = Voyage::findOrFail($id);
+        $voyage->likes()->detach(auth()->id());
         return redirect()->route('voyages.show', $voyage->id);
     }
 
