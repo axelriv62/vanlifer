@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Etape;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use App\Enums\FormatMedia;
+
 
 class EtapeController extends Controller
 {
@@ -20,9 +23,7 @@ class EtapeController extends Controller
         return view('etapes.create');
     }
 
-    // Store a newly created resource in storage.
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         $validatedData = $request->validate([
             'titre' => 'required|string|max:255',
             'resume' => 'required|string',
@@ -30,9 +31,22 @@ class EtapeController extends Controller
             'debut' => 'required|date',
             'fin' => 'required|date',
             'voyage_id' => 'required|exists:voyages,id',
+            'medias.*' => 'nullable|file|mimes:jpg,png,jpeg,mp4,mov,avi',
         ]);
 
         $etape = Etape::create($validatedData);
+
+        if ($request->hasFile('medias')) {
+            foreach ($request->file('medias') as $media) {
+                $path = $media->store('media', 'public');
+                $format = in_array($media->getClientOriginalExtension(), ['mp4', 'mov', 'avi']) ? FormatMedia::VIDEO : FormatMedia::IMAGE;
+                $etape->medias()->create([
+                    'titre' => pathinfo($media->getClientOriginalName(), PATHINFO_FILENAME),
+                    'url' => Storage::url($path),
+                    'format' => $format,
+                ]);
+            }
+        }
 
         return redirect()->route('etapes.index')->with('success', 'Étape créée avec succès.');
     }
@@ -40,6 +54,7 @@ class EtapeController extends Controller
 // Display the specified resource.
     public function show(Etape $etape)
     {
+        $etape->load('medias');
         return view('etapes.show', compact('etape'));
     }
     // Show the form for editing the specified resource.
@@ -49,6 +64,7 @@ class EtapeController extends Controller
     }
 
 // Update the specified resource in storage.
+
     public function update(Request $request, Etape $etape)
     {
         $validatedData = $request->validate([
@@ -58,19 +74,44 @@ class EtapeController extends Controller
             'debut' => 'required|date',
             'fin' => 'required|date',
             'voyage_id' => 'required|exists:voyages,id',
+            'medias.*' => 'nullable|file|mimes:jpg,png,jpeg,mp4,mov,avi',
+            'remove_medias' => 'nullable|array',
+            'remove_medias.*' => 'exists:media,id',
         ]);
 
         $etape->update($validatedData);
 
-        return redirect()->route('etapes.index')->with('success', 'Étape mise à jour avec succès.');
+        // Supprimer un média
+        if ($request->has('remove_medias')) {
+            foreach ($request->remove_medias as $mediaId) {
+                $media = $etape->medias()->find($mediaId);
+                if ($media) {
+                    Storage::disk('public')->delete(str_replace('/storage/', '', $media->url));
+                    $media->delete();
+                }
+            }
+        }
+
+        // Ajouter un média
+        if ($request->hasFile('medias')) {
+            foreach ($request->file('medias') as $media) {
+                $path = $media->store('media', 'public');
+                $format = in_array($media->getClientOriginalExtension(), ['mp4', 'mov', 'avi']) ? FormatMedia::VIDEO : FormatMedia::IMAGE;
+                $etape->medias()->create([
+                    'titre' => pathinfo($media->getClientOriginalName(), PATHINFO_FILENAME),
+                    'url' => Storage::url($path),
+                    'format' => $format,
+                ]);
+            }
+        }
+
+        return redirect()->route('etapes.show', $etape)->with('success', 'Étape modifiée avec succès.');
     }
 
 // Remove the specified resource from storage.
-    public function destroy(Request $request)
+    public function destroy(Etape $etape)
     {
-        $etape = Etape::findOrFail($request->etape_id);
         $etape->delete();
-
         return redirect()->route('etapes.index')->with('success', 'Étape supprimée avec succès.');
     }
 
