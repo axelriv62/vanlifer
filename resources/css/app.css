@@ -4,8 +4,8 @@ html {
 }
 body {
     /* Margin bottom by footer height */
-    margin-bottom: 30px;
-    margin-top: 100%;
+    /*margin-bottom: 30px;*/
+    /*margin-top: 100%;*/
 }
 
 main {
@@ -28,7 +28,7 @@ main {
 
 /* Style du footer */
 
-.footer {
+footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -58,7 +58,7 @@ main {
 
 /* Fin du style du footer */
 
-header {
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
