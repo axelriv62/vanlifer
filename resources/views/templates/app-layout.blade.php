@@ -23,7 +23,7 @@
     @yield('content')
 </main>
 
-<footer>@include('components.footer')</footer>
+@include('components.footer')
 
 
 </body>

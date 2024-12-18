@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VanLife - Créer une nouvelle étape</title>
-    @vite('resources/css/app.css')
-</head>
-<body>
-@include('components.menu')
-<main>
-    <h1>Créer une nouvelle étape</h1>
+@extends('templates.app-layout')
+@section('content')
+ <h1>Créer une nouvelle étape</h1>
     <form action="{{ route('etapes.store') }}" method="POST">
         @csrf
         <div>
@@ -38,6 +29,4 @@
         </div>
         <button type="submit">Créer</button>
     </form>
-</main>
-</body>
-</html>
+@endsection

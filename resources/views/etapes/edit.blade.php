@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VanLife - Modifier l'étape</title>
-    @vite('resources/css/app.css')
-</head>
-<body>
-@include('components.menu')
-<main>
+@extends('templates.app-layout')
+@section('content')
     <h1>Modifier l'étape</h1>
     <form action="{{ route('etapes.update', $etape->id) }}" method="POST">
         @csrf
@@ -39,6 +30,4 @@
         </div>
         <button type="submit">Modifier</button>
     </form>
-</main>
-</body>
-</html>
+@endsection
