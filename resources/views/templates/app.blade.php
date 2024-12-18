@@ -40,6 +40,6 @@
     @yield("content")
 </main>
 
-<footer> <x-footer></x-footer></footer>
+<footer><x-footer></x-footer></footer>
 </body>
 </html>

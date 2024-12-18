@@ -13,4 +13,7 @@
     <p>Your adventure starts here.</p>
 </main>
 </body>
+<footer>
+    <x-footer></x-footer>
+</footer>
 </html>
