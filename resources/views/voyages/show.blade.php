@@ -18,31 +18,21 @@
     </section>
     <div class="content">
         <section class="container etapes">
-            <div class="etape" id="e1">
-                <p>Rome</p>
-                <div class="image red">
-                <img src="https://picsum.photos/id/237/200/300">
+            @for ($i = 0; $i < min(4, $voyage->etapes->count()); $i++)
+                @php
+                    $etape = $voyage->etapes[$i];
+                    $defaultImages = glob(public_path('storage/app/public/images/user1/*.{jpg,png,gif}'), GLOB_BRACE);
+                    $randomImage = !empty($defaultImages) ? asset('storage/app/public/images/user1/' . basename($defaultImages[array_rand($defaultImages)])) : asset('storage/images/default.jpg');
+                @endphp
+                <div class="etape" id="e{{ $i + 1 }}">
+                    <p>{{ $etape->nom }}</p>
+                    <div class="image {{ $etape->couleur }}">
+                        <a href="{{ route('etapes.show', $etape) }}">
+                            <img src="{{ $etape->image_url ?? $randomImage }}" alt="{{ $etape->nom }}">
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="etape" id="e2">
-                <p>Rome</p>
-                <div class="image red">
-                    <img src="https://picsum.photos/id/237/200/300">
-                </div>
-            </div>
-            <div class="etape" id="e3">
-                <p>Rome</p>
-                <div class="image yellow">
-                    <img src="https://picsum.photos/id/237/200/300">
-                </div>
-            </div>
-            <div class="etape" id="e4">
-                <p>Rome</p>
-                <div class="image green">
-                    <img src="https://picsum.photos/id/237/200/300">
-                </div>
-            </div>
+            @endfor
         </section>
     </div>
-
 @endsection
