@@ -7,7 +7,7 @@
     @vite('resources/css/app.css')
 </head>
 <body>
-@include('components.header')
+@include('components.menu')
 <h1>Index des étapes</h1>
 <main>
     <table>

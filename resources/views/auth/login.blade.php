@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/css/uikit.min.css" />
 </head>
 
-    <body>
+<body>
 <div class="connexion">
     <aside class="left">
         <div class="formulaire">
@@ -66,8 +66,8 @@
     </aside>
 
     <aside class="right">
-{{--        <img src="{{asset('img/logopicture.png')}}"> METTRE LE LOGO DE L'APPLI--}}
-    <p>LOGO</p>
+        {{--        <img src="{{asset('img/logopicture.png')}}"> METTRE LE LOGO DE L'APPLI--}}
+        <p>LOGO</p>
         <script>
             const signin  = document.querySelector('.formulaireConnexion');
             const left = document.querySelector('.left');
@@ -106,5 +106,5 @@
             </script>
     @endif
 </div>
-    </body>
+</body>
 </html>

@@ -7,7 +7,7 @@
     @vite('resources/css/app.css')
 </head>
 <body>
-@include('components.header')
+@include('components.menu')
 <main>
     <h1>Modifier l'étape</h1>
     <form action="{{ route('etapes.update', $etape->id) }}" method="POST">

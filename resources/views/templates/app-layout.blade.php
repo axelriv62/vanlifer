@@ -1,3 +1,4 @@
+<!-- resources/views/templates/app-layout.blade.php -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +10,6 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/css/uikit.min.css" />
 
-
     <!-- par défaut on charge ces css/js -->
     <!-- on peut étendre cette section, voir la vue test-vite.blade.php -->
     @section("head")
@@ -17,29 +17,14 @@
     @show
 </head>
 <body>
-<header>Ma super application</header>
-<nav>
-    <a href="{{route('accueil')}}">Accueil</a>
-    <a href="{{route('test-vite')}}">Test Vite</a>
-    <a href="#">Contact</a>
 
-@auth
-        {{Auth::user()->name}}
-        <a href="{{route("logout")}}"
-           onclick="document.getElementById('logout').submit(); return false;">Logout</a>
-        <form id="logout" action="{{route("logout")}}" method="post">
-            @csrf
-        </form>
-    @else
-        <a href="{{route("login")}}">Login</a>
-        <a href="{{route("register")}}">Register</a>
-    @endauth
-</nav>
+<x-menu/>
 
 <main>
-    @yield("content")
+    {{$slot}}
 </main>
 
-<footer><x-footer></x-footer></footer>
+<x-footer/>
+
 </body>
 </html>
