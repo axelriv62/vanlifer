@@ -23,10 +23,6 @@
         <p>{{ $voyage->description }}</p>
     </div>
     <div>
-        <strong>Continent:</strong>
-        <p>{{ $voyage->continent }}</p>
-    </div>
-    <div>
         <strong>En ligne:</strong>
         <p>{{ $voyage->en_ligne ? 'Oui' : 'Non' }}</p>
     </div>

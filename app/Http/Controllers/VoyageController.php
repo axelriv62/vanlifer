@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Voyage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class VoyageController extends Controller
 {
@@ -23,15 +24,22 @@ class VoyageController extends Controller
     }
 
     public function store(Request $request) {
+        $validated = $request->validate([
+            'titre' => 'required|string|max:255',
+            'description' => 'required|string',
+            'resume' => 'required|string',
+            'visuel' => 'required|file|mimes:jpg,png,jpeg',
+        ]);
+
         $voyage = new Voyage();
-        $voyage->titre = $request->titre;
-        $voyage->description = $request->description;
-        $voyage->resume = $request->resume;
-        $voyage->continent = $request->continent;
+        $voyage->titre = $validated['titre'];
+        $voyage->description = $validated['description'];
+        $voyage->resume = $validated['resume'];
         $voyage->user_id = auth()->id();
 
         if ($request->hasFile('visuel')) {
-            $voyage->visuel = $request->file('visuel')->store('images', 'public');
+            $path = $request->file('visuel')->store('images', 'public');
+            $voyage->visuel = Storage::url($path);
         }
 
         $voyage->save();
@@ -41,6 +49,28 @@ class VoyageController extends Controller
     public function edit($id) {
         $voyage = Voyage::findorFail($id);
         return view('voyages.edit', compact('voyage'));
+    }
+
+    public function update(Request $request, $id) {
+        $validated = $request->validate([
+            'titre' => 'required|string|max:255',
+            'description' => 'required|string',
+            'resume' => 'required|string',
+            'visuel' => 'nullable|file|mimes:jpg,png,jpeg',
+        ]);
+
+        $voyage = Voyage::findorFail($id);
+        $voyage->titre = $validated['titre'];
+        $voyage->description = $validated['description'];
+        $voyage->resume = $validated['resume'];
+
+        if ($request->hasFile('visuel')) {
+            $path = $request->file('visuel')->store('images', 'public');
+            $voyage->visuel = Storage::url($path);
+        }
+
+        $voyage->save();
+        return redirect()->route('voyages.show', $voyage->id);
     }
 
 }
