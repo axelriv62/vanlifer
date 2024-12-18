@@ -9,7 +9,7 @@
 <body>
 <header>
     <div class="logo">
-        <img src="{{ asset('storage/images/logo.jpg') }}" alt="Logo">
+        <img src="{{ asset('storage/images/logo.jpg') }}" alt="Logo"><!-- Logo -->
     </div>
     <nav>
         <ul>
@@ -22,7 +22,7 @@
             <li><a href="/services">Connexion</a></li>
             <li><a href="/contact">Inscription</a></li>
             <div class="logo">
-                <img src="{{ asset('storage/images/logo.jpg') }}" alt="Logo">
+                <img src="{{ asset('storage/images/logo.jpg') }}" alt="Logo"><!-- Icône de connexion de l'utilisateur -->
             </div>
         </ul>
     </nav>
