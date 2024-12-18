@@ -31,3 +31,7 @@ Route::resource('voyages', VoyageController::class);
 
 Route::resource('etapes', EtapeController::class);
 Route::get('/etapes/{etape}/delete', [EtapeController::class, 'delete'])->name('etapes.delete');
+
+Route::post('voyages/{id}/like', [VoyageController::class, 'like'])->name('voyages.like');
+Route::delete('voyages/{id}/like', [VoyageController::class, 'unlike'])->name('voyages.unlike');
+

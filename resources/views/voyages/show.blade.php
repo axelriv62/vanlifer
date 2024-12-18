@@ -36,4 +36,18 @@
             @endfor
         </section>
     </div>
+    <div>
+        @if($voyage->likes->contains(auth()->user()))
+            <form action="{{ route('voyages.like', $voyage->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn">Unlike</button>
+            </form>
+        @else
+            <form action="{{ route('voyages.unlike', $voyage->id) }}" method="POST">
+                @csrf
+                <button type="submit" class="btn">Like</button>
+            </form>
+        @endif
+    </div>
 @endsection
