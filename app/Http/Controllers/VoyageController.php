@@ -28,10 +28,14 @@ class VoyageController extends Controller
         $voyage->description = $request->description;
         $voyage->resume = $request->resume;
         $voyage->continent = $request->continent;
-        $voyage->user_id = $request->user_id;
-        $voyage->visuel = $request->visuel;
+        $voyage->user_id = auth()->id();
+
+        if ($request->hasFile('visuel')) {
+            $voyage->visuel = $request->file('visuel')->store('images', 'public');
+        }
+
         $voyage->save();
-        return redirect()->route('voyages.index');
+        return redirect()->route('voyages.show', $voyage->id);
     }
 
     public function edit($id) {
