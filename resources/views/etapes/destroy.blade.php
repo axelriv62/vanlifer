@@ -8,7 +8,7 @@
     @vite('resources/css/app.css')
 </head>
 <body>
-@include('components.header')
+@include('components.menu')
 <main>
     <h1>Supprimer l'étape</h1>
     <form action="{{ route('etapes.destroy', 'id') }}" method="POST">

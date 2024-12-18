@@ -7,7 +7,7 @@
     @vite('resources/css/app.css')
 </head>
 <body>
-@include('components.header')
+@include('components.menu')
 <main>
     <h1>Créer une nouvelle étape</h1>
     <form action="{{ route('etapes.store') }}" method="POST">
