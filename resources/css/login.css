@@ -1,0 +1,99 @@
+.connexion {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.formulaire {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 5px solid #F28585;
+    border-radius: 15px;
+    padding: 2rem;
+    background-color: #86A69D;
+    box-shadow: 18px 18px 0px -1px #F28585;
+    height: 80vh;
+    justify-content: center;
+}
+
+.left {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: transform 1s ease;
+}
+
+.right {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F2B263;
+    border-radius: 15px 0 0 15px;
+    transition: all 0.8s ease;
+    height: 100vh;
+}
+
+.connexion img {
+    width: 20rem;
+}
+
+.connexion form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.formulaireConnexion {
+    display: none;
+    width: 80%;
+}
+
+.formulaireInscription {
+    display: none;
+    width: 80%;
+}
+
+.connexion .visible {
+    display: flex;
+    flex-direction: column;
+}
+
+.connexion .grp_input {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem;
+}
+
+input,
+select {
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    background-color: white;
+}
+
+select {
+    width: 100%;
+}
+
+.swapped_right {
+    transform: translateX(100%);
+}
+
+.swapped_left {
+    transform: translateX(-100%);
+    border-radius: 0 15px 15px 0;
+}
+
+.signin {
+    margin: 0;
+    padding: 0;
+}
