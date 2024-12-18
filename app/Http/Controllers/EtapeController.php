@@ -38,9 +38,10 @@ class EtapeController extends Controller
     }
 
 // Display the specified resource.
-    public function show(Etape $etape)
+    public function show($voyage)
     {
-        return view('etapes.show', compact('etape'));
+        $etapes = Etape::where('voyage_id', $voyage)->get();
+        return view('etapes.index', compact('etapes'));
     }
     // Show the form for editing the specified resource.
     public function edit(Etape $etape)

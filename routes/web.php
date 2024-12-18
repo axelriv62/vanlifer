@@ -27,3 +27,4 @@ Route::get('/dashboard', function () {
 
 Route::resource('etapes', EtapeController::class);
 Route::get('/etapes/{etape}/delete', [EtapeController::class, 'delete'])->name('etapes.delete');
+Route::get('voyages/{voyage}/etapes', [EtapeController::class, 'show'])->name('etapes.show');
