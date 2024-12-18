@@ -10,9 +10,6 @@ body {
 
 main {
     min-height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 
@@ -65,9 +62,6 @@ nav {
     padding: 20px;
     background-color: #86A69D;
     width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
     z-index: 1000;
 }
 
