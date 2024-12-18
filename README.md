@@ -1,6 +1,6 @@
 ## Invitation aux voyages
 
-Groupe test but24_groupeTT
+Groupe power-rangers but24_groupe6
 
 ## Version initiale
 
