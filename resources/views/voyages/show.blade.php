@@ -18,31 +18,22 @@
     </section>
     <div class="content">
         <section class="container etapes">
-            <div class="etape" id="e1">
-                <p>Rome</p>
-                <div class="image red">
-                <img src="https://picsum.photos/id/237/200/300">
+            @for ($i = 0; $i < min(4, $voyage->etapes->count()); $i++)
+                @php
+                    $etape = $voyage->etapes[$i];
+                    $firstImage = $etape->medias->where('format', 'image')->first();
+                    $colors = ['yellow', 'red', 'green'];
+                    $randomColor = $colors[array_rand($colors)];
+                @endphp
+                <div class="etape" id="e{{ $i + 1 }}">
+                    <p>{{ $etape->titre }}</p>
+                    <div class="image {{ $randomColor }}">
+                        <a href="{{ route('etapes.show', $etape) }}">
+                            <img src="{{ $firstImage ? $firstImage->url : 'https://picsum.photos/id/237/200/300' }}" alt="{{ $etape->nom }}">
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="etape" id="e2">
-                <p>Rome</p>
-                <div class="image red">
-                    <img src="https://picsum.photos/id/237/200/300">
-                </div>
-            </div>
-            <div class="etape" id="e3">
-                <p>Rome</p>
-                <div class="image yellow">
-                    <img src="https://picsum.photos/id/237/200/300">
-                </div>
-            </div>
-            <div class="etape" id="e4">
-                <p>Rome</p>
-                <div class="image green">
-                    <img src="https://picsum.photos/id/237/200/300">
-                </div>
-            </div>
+            @endfor
         </section>
     </div>
-
 @endsection
