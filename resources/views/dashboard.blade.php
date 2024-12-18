@@ -1,6 +1,8 @@
-<x-app-layout>
+@extends("templates.app")
+
+@section("content")
     <div class="app-info">
-        Le marathon du WEB 2024 : C'est parti pour une nouvelle aventure !!!
+        Ma page perso
     </div>
 </x-app-layout>
-
+@endsection
