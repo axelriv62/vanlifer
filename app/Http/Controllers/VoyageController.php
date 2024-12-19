@@ -20,13 +20,15 @@ class VoyageController extends Controller
     }
 
     public function show($id) {
-        $voyage = Voyage::findOrFail($id);
+        $voyage = Voyage::with(['etapes.medias', 'likes', 'avis'])->findOrFail($id);
+        $etapes = $voyage->etapes->take(4);
 
-        if (!$voyage->en_ligne && $voyage->user_id != auth()->id()) {
-            abort(403, 'Action non autorisée');
+        if ($etapes->count() < 4) {
+            $additionalEtapes = $voyage->etapes->skip(4)->take(4 - $etapes->count());
+            $etapes = $etapes->merge($additionalEtapes);
         }
 
-        return view('voyages.show', compact('voyage'));
+        return view('voyages.show', compact('voyage', 'etapes'));
     }
 
     public function create() {
