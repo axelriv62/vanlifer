@@ -8,7 +8,7 @@
         <div class="content">
             <img src="{{Vite::asset('resources/images/vanlife.webp')}}" alt="bannière">
             <div class="text">
-                <h1>Bienvenue sur En aVan !</h1>
+                <h1>Bienvenue sur VanLifer !</h1>
                 <p>L'aventure commence ici</p>
             </div>
         </div>
