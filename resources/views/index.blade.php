@@ -29,27 +29,16 @@
         <h1>Nos Vans Tours</h1>
     </section>
     <section class="voyages">
-        <div class="image">
-            <img src="https://picsum.photos/seed/picsum/300/300" alt="">
-            <div class="text">
-                <p>Voyage en Italie</p>
-            </div>
-        </div>
-        <div class="image">
-            <img src="https://picsum.photos/300/300?grayscale" alt="">
-            <div class="text">
-                <p>Voyage en Italie</p>
-            </div>
-        </div>
-        <div class="image">
-            <img src="https://picsum.photos/300/300/" alt="">
-            <div class="text">
-                <p>Voyage en Italie</p>
-            </div>
-        </div>
+        @foreach($voyages as $voyage)
+            <a href="{{ route('voyages.show', $voyage) }}">
+                <div class="image">
+                    <img src="{{ $voyage->visuel }}" alt="{{ $voyage->titre }}">
+                    <div class="text">
+                        <p>{{ $voyage->titre }}</p>
+                    </div>
+                </div>
+            </a>
+        @endforeach
     </section>
-
-
-
 @endsection
 

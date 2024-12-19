@@ -91,4 +91,9 @@ class VoyageController extends Controller
         return redirect()->route('voyages.show', $voyage->id);
     }
 
+    public function randomVoyages() {
+        $voyages = Voyage::inRandomOrder()->take(3)->get();
+        return view('index', compact('voyages'));
+    }
+
 }
