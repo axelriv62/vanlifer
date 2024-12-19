@@ -120,10 +120,12 @@ class EtapeController extends Controller
     }
 
 // Remove the specified resource from storage.
-    public function destroy(Etape $etape)
+    public function destroy($id)
     {
+        $etape = Etape::findOrFail($id);
+        $voyageId = $etape->voyage_id;
         $etape->delete();
-        return redirect()->route('etapes.index')->with('success', 'Étape supprimée avec succès.');
+        return redirect()->route('voyages.show', $voyageId);
     }
 
     public function delete($id)
