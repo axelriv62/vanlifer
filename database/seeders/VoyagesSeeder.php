@@ -28,11 +28,11 @@ class VoyagesSeeder extends Seeder {
                 'user_id' => 1,
             ],
             [
-                'titre' => "Aventure en Europe du Sud",
-                'description' => "Exploration des paysages et des cultures vibrantes de l'Europe du Sud.",
-                'resume' => "Exploration des paysages et des cultures vibrantes de l'Europe du Sud.",
+                'titre' => "Notre voyage en Norvège",
+                'description' => "Exploration des paysages et des cultures vibrantes de la Norvège.",
+                'resume' => "Exploration des paysages et des cultures vibrantes de la Norvège.",
                 'en_ligne' => true,
-                'visuel' => env('APP_URL')."/storage/user1/europe-sud.png",
+                'visuel' => env('APP_URL')."/storage/app/public/user1/norvege.jpg",
                 'user_id' => 1,
             ],
         ];
