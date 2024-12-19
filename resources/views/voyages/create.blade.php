@@ -6,6 +6,7 @@
 
 @section('content')
     <section class="form">
+        <div class="left">
     <h1>Création d'un voyage</h1>
     <form action="{{ route('voyages.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -21,7 +22,6 @@
             <label for="description">Description:</label>
             <textarea id="description" name="description" required></textarea>
         </div>
-
         <div>
             <label for="visuel" class="label_img">Visuel: <img src="{{Vite::asset('resources/images/images.png')}}"></label>
             <input type="file" id="visuel" name="visuel" class="input_img" required style="display: none;">
@@ -38,6 +38,11 @@
         @endsection
         <button type="submit" style="display: inline-block; padding: 6px 12px; cursor: pointer; background-color: #86A69D; color: white; border-radius: 4px; border: none;">Ajouter</button>
     </form>
+        </div>
+        <div class="right">
+            <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.3.0/dist/dotlottie-wc.js" type="module"></script>
+            <dotlottie-wc src="https://lottie.host/a3b50870-e329-46b3-b92c-9002cb011a9b/tYplmSjOqP.lottie" autoplay loop></dotlottie-wc>
+        </div>
         <script>
             const input_img = document.querySelector('.input_img');
             function preview(event) {

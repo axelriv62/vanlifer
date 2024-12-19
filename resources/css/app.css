@@ -109,3 +109,31 @@ nav  a {
 nav a:hover {
     color: #F28585;
 }
+
+.green_btn {
+    color: white;
+    background-color: #86a69d;
+    border : none;
+    border-radius: 5px;
+    padding: 0.5rem;
+    transition: 0.2s ease;
+}
+
+.green_btn:hover {
+    background-color: #7d9b92;
+}
+
+.yellow_btn {
+    color: white;
+    background-color: #F2B263;
+    border : none;
+    border-radius: 5px;
+    padding: 0.5rem;
+    margin: 1rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.yellow_btn:hover {
+    background-color: #d9a159;
+}
