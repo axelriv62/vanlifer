@@ -8,11 +8,11 @@
                     <img src="{{ $voyage->visuel }}" alt="{{ $voyage->titre }}">
                     <h3>{{ $voyage->titre }}</h3>
                     @if (auth()->check() && auth()->user()->can('update', $voyage) && auth()->user()->can('delete', $voyage))
-                        <a href="{{ route('voyages.edit', $voyage->id) }}" class="btn btn-primary">Modifier</a>
+                        <a href="{{ route('voyages.edit', $voyage->id) }}" class="btn btn-primary green_btn">Modifier</a>
                         <form action="{{ route('voyages.destroy', $voyage->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit">Supprimer</button>
+                            <button type="submit" class="yellow_btn">Supprimer</button>
                         </form>
                     @endif
 
@@ -21,7 +21,7 @@
             @if(!$voyage->en_ligne && $voyage->user_id == auth()->id())
                 <form action="{{ route('voyages.publish', $voyage->id) }}" method="POST">
                     @csrf
-                    <button type="submit" class="btn btn-primary">Publier</button>
+                    <button type="submit" class="btn btn-primary green_btn">Publier</button>
                 </form>
             @endif
         @endforeach

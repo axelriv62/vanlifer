@@ -34,12 +34,6 @@ h2 {
     filter: blur(10px);
 }
 
-.background {
-    background-image: url("../images/trait3.png");
-    background-repeat: no-repeat;
-    background-size: 100% 150%;
-}
-
 .background .content {
     width: 80%;
     margin: 0 auto;
@@ -103,4 +97,11 @@ h2 {
     object-fit: cover;
     aspect-ratio: 1/1;
     border-radius: 15px;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
 }

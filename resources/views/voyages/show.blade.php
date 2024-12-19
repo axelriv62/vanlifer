@@ -1,3 +1,4 @@
+
 @extends('templates.app-layout')
 
 @section('style')
@@ -17,22 +18,22 @@
         </div>
     </section>
     <div class="like">
-    @auth
-        @if($voyage->likes->contains(auth()->user()))
-            <form action="{{ route('voyages.unlike', $voyage->id) }}" method="POST">
-                @csrf
-                @method('DELETE')
-                <label for="dislike"><i class='bx bxs-heart' style='color:#f28585'></i><p>Vous aimez ce voyage</p></label>
-                <input type="submit" class="btn" id="dislike" style="display: none">
-            </form>
+        @auth
+            @if($voyage->likes->contains(auth()->user()))
+                <form action="{{ route('voyages.unlike', $voyage->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <label for="dislike"><i class='bx bxs-heart' style='color:#f28585'></i><p>Vous aimez ce voyage</p></label>
+                    <input type="submit" class="btn" id="dislike" style="display: none">
+                </form>
 
-        @else
-            <form action="{{ route('voyages.like', $voyage->id) }}" method="POST">
-                @csrf
-                <label for="like"><i class='bx bx-heart' style='color:#f28585'></i></label>
-                <input type="submit" class="btn" id="like" style="display: none">
-            </form>
-        @endif
+            @else
+                <form action="{{ route('voyages.like', $voyage->id) }}" method="POST">
+                    @csrf
+                    <label for="like"><i class='bx bx-heart' style='color:#f28585'></i></label>
+                    <input type="submit" class="btn" id="like" style="display: none">
+                </form>
+            @endif
         @endauth
     </div>
     <div class="stats">
@@ -41,14 +42,13 @@
     </div>
     <div class="content">
         <section class="container etapes">
-            @for ($i = 0; $i < min(4, $voyage->etapes->count()); $i++)
+            @foreach ($etapes as $etape)
                 @php
-                    $etape = $voyage->etapes[$i];
                     $firstImage = $etape->medias->where('format', 'image')->first();
                     $colors = ['yellow', 'red', 'green'];
                     $randomColor = $colors[array_rand($colors)];
                 @endphp
-                <div class="etape" id="e{{ $i + 1 }}">
+                <div class="etape" id="e{{ $loop->index + 1 }}">
                     <p>{{ $etape->titre }}</p>
                     <div class="image {{ $randomColor }}">
                         <a href="{{ route('etapes.show', $etape) }}">
@@ -56,12 +56,12 @@
                         </a>
                     </div>
                 </div>
-            @endfor
+            @endforeach
         </section>
     </div>
     <div>
         @if (auth()->check() && auth()->user()->can('update', $voyage))
-        <a href="{{ route('etapes.create', ['voyage_id' => $voyage->id]) }}" class="btn btn-primary">Créer une étape</a>
+            <a href="{{ route('etapes.create', ['voyage_id' => $voyage->id]) }}" class="btn btn-primary">Créer une étape</a>
         @endif
     </div>
     <section class="commentaires">
@@ -72,7 +72,7 @@
             </div>
         @endforeach
         @auth
-    @include('avis.create')
+            @include('avis.create')
         @endauth
     </section>
 @endsection

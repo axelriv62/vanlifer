@@ -16,4 +16,12 @@ class UserController extends Controller {
         return redirect()->route('users.show', ['id' => auth()->id()]);
     }
 
+    public function usersWithActiveVoyages() {
+        $users = User::whereHas('voyages', function ($query) {
+            $query->where('en_ligne', true);
+        })->get();
+
+        return view('users.actifs', compact('users'));
+    }
+
 }
