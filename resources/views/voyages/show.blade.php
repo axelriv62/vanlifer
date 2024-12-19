@@ -18,19 +18,23 @@
     </section>
     <div class="like">
         @if($voyage->likes->contains(auth()->user()))
-            <form action="{{ route('voyages.like', $voyage->id) }}" method="POST">
+            <form action="{{ route('voyages.unlike', $voyage->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
-                <label for="dislike"><i class='bx bx-heart' style='color:#f28585'  ></i></label>
+                <label for="dislike"><i class='bx bxs-heart' style='color:#f28585'></i><p>Vous aimez ce voyage</p></label>
                 <input type="submit" class="btn" id="dislike" style="display: none">
             </form>
         @else
-            <form action="{{ route('voyages.unlike', $voyage->id) }}" method="POST">
+            <form action="{{ route('voyages.like', $voyage->id) }}" method="POST">
                 @csrf
-                <label for="like"><i class='bx bxs-heart' style='color:#f28585' ></i><p>Vous aimez ce voyage </p></label>
+                <label for="like"><i class='bx bx-heart' style='color:#f28585'></i></label>
                 <input type="submit" class="btn" id="like" style="display: none">
             </form>
         @endif
+    </div>
+    <div class="stats">
+        <p>Nombre de likes : {{ $voyage->likes->count() }}</p>
+        <p>Nombre d'avis: {{ $voyage->avis->count() }}</p>
     </div>
     <div class="content">
         <section class="container etapes">
