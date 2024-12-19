@@ -206,3 +206,24 @@ body {
     border-radius: 15px;
     padding: 1rem;
 }
+
+.like {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.like form {
+    font-size: 300%;
+}
+
+.like label{
+    display: flex;
+    align-items: center;
+}
+
+.like label p {
+    font-size: 70%;
+    margin: 1rem;
+    color: #86A69D;
+}
