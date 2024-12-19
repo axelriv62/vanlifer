@@ -2,7 +2,7 @@
 <nav id="navbar">
     <div class="left">
         <div class="logo">
-            <a href="/"><img src="{{ asset('storage/images/logo.jpg') }}" alt="Logo" id="logo"></a>
+            <a href="/"><img class="logo" src="{{Vite::asset('resources/images/logo_blanc.png')}}" alt="Logo"></a>
         </div>
         <ul>
             <li><a href="/voyages">Voyages</a></li>

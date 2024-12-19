@@ -16,6 +16,22 @@
             <p>{{ $voyage->description }}</p>
         </div>
     </section>
+    <div class="like">
+        @if($voyage->likes->contains(auth()->user()))
+            <form action="{{ route('voyages.like', $voyage->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <label for="dislike"><i class='bx bx-heart' style='color:#f28585'  ></i></label>
+                <input type="submit" class="btn" id="dislike" style="display: none">
+            </form>
+        @else
+            <form action="{{ route('voyages.unlike', $voyage->id) }}" method="POST">
+                @csrf
+                <label for="like"><i class='bx bxs-heart' style='color:#f28585' ></i><p>Vous aimez ce voyage </p></label>
+                <input type="submit" class="btn" id="like" style="display: none">
+            </form>
+        @endif
+    </div>
     <div class="content">
         <section class="container etapes">
             @for ($i = 0; $i < min(4, $voyage->etapes->count()); $i++)
@@ -35,20 +51,6 @@
                 </div>
             @endfor
         </section>
-    </div>
-    <div>
-        @if($voyage->likes->contains(auth()->user()))
-            <form action="{{ route('voyages.like', $voyage->id) }}" method="POST">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn">Unlike</button>
-            </form>
-        @else
-            <form action="{{ route('voyages.unlike', $voyage->id) }}" method="POST">
-                @csrf
-                <button type="submit" class="btn">Like</button>
-            </form>
-        @endif
     </div>
     <section class="commentaires">
         <h1>Commentaires</h1>

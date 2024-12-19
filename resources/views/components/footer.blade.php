@@ -4,7 +4,7 @@
         <p>Copyright PowerRangers 2024</p>
     </div>
     <div class="footer-centre">
-        <img src="{{asset('storage/images/logo.jpg')}}" alt="Logo">
+        <img class="logo" src="{{Vite::asset('resources/images/logo.png')}}" alt="Logo">
     </div>
     <div class="footer-droite">
         <h4>Restez en contact avec nous</h4>

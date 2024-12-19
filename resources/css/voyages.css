@@ -12,7 +12,7 @@ h2 {
 .voyages-list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 1rem;
+    grid-gap: 2rem;
     width: 95%;
     margin: 0 auto;
     text-align: center;
@@ -28,3 +28,12 @@ h2 {
 .voyage-item img{
     border-radius: 15px 15px 0 0 ;
 }
+
+.voyage-item {
+    transition: 0.5s ease;
+}
+
+.voyage-item:hover {
+    scale: 1.1;
+}
+
