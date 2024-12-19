@@ -1,4 +1,4 @@
-@extends("templates.app")
+@extends("templates.app-layout")
 
 @section('content')
     <div style="display: flex;align-items: center; justify-content: center">

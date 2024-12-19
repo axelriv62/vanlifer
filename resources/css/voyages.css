@@ -1,0 +1,39 @@
+body {
+    padding-top: 150px;
+}
+
+h2 {
+    width: 100%;
+    text-align: center;
+    color: #86A69D;
+    font-weight: bold;
+}
+
+.voyages-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2rem;
+    width: 95%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.voyage-item h3{
+    margin : 0;
+    background-color: #F2B263;
+    color: white;
+    padding : 0.5rem;
+}
+
+.voyage-item img{
+    border-radius: 15px 15px 0 0 ;
+}
+
+.voyage-item {
+    transition: 0.5s ease;
+}
+
+.voyage-item:hover {
+    scale: 1.1;
+}
+

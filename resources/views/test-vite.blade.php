@@ -1,4 +1,4 @@
-@extends("templates.app")
+@extends("templates.app-layout")
 
 <!-- ici je redéfini la section head du template général -->
 @section("head")

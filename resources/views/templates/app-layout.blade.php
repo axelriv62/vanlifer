@@ -1,3 +1,4 @@
+<!-- resources/views/templates/app-layout.blade.php -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,40 +7,25 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/css/uikit.min.css" />
-
 
     <!-- par défaut on charge ces css/js -->
     <!-- on peut étendre cette section, voir la vue test-vite.blade.php -->
-    @section("head")
+
         @vite(["resources/css/normalize.css", 'resources/css/app.css', 'resources/js/app.js'])
-    @show
+        @yield('style')
+
 </head>
 <body>
-<header>Ma super application</header>
-<nav>
-    <a href="{{route('accueil')}}">Accueil</a>
-    <a href="{{route('test-vite')}}">Test Vite</a>
-    <a href="#">Contact</a>
-
-@auth
-        {{Auth::user()->name}}
-        <a href="{{route("logout")}}"
-           onclick="document.getElementById('logout').submit(); return false;">Logout</a>
-        <form id="logout" action="{{route("logout")}}" method="post">
-            @csrf
-        </form>
-    @else
-        <a href="{{route("login")}}">Login</a>
-        <a href="{{route("register")}}">Register</a>
-    @endauth
-</nav>
+<header>@include('components.menu')</header>
 
 <main>
-    @yield("content")
+    @yield('content')
 </main>
 
-<footer>IUT de Lens</footer>
+@include('components.footer')
+
+
 </body>
 </html>
