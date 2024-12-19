@@ -55,7 +55,18 @@ class EtapeController extends Controller
     public function show(Etape $etape)
     {
         $etape->load('medias');
-        return view('etapes.show', compact('etape'));
+
+        $previousEtape = Etape::where('voyage_id', $etape->voyage_id)
+            ->where('id', '<', $etape->id)
+            ->orderBy('id', 'desc')
+            ->first();
+
+        $nextEtape = Etape::where('voyage_id', $etape->voyage_id)
+            ->where('id', '>', $etape->id)
+            ->orderBy('id', 'asc')
+            ->first();
+
+        return view('etapes.show', compact('etape', 'previousEtape', 'nextEtape'));
     }
     // Show the form for editing the specified resource.
     public function edit(Etape $etape)

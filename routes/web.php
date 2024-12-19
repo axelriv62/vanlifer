@@ -8,9 +8,11 @@ use App\Http\Controllers\UserController;
 
 // Routes données à l'origine
 
-Route::get('/', function () {
-    return view('index');
-})->name("accueil");
+//Route::get('/', function () {
+//    return view('index');
+//})->name("accueil");
+
+Route::get('/', [VoyageController::class, 'randomVoyages'])->name('accueil');
 
 Route::get('/contact', function () {
     return view('contact');
