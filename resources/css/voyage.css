@@ -149,3 +149,60 @@ body {
 #e4 .image {
     transform: rotate(-5deg)
 }
+
+.commentaires h1 {
+    color: #86A69D;
+    font-size: 200%;
+    font-weight: bold;
+    width: 100%;
+    margin: 1rem 1rem;
+}
+
+
+.commentaires .avis {
+    background-color: rgba(242, 178, 99, 0.6);
+    width: 50%;
+    margin: 1rem 2rem;
+    padding: 1rem;
+    border-radius: 15px;
+}
+
+.add_commentaire {
+    margin: 1rem 2rem;
+    width: 100%;
+}
+
+.add_commentaire form {
+    display: flex;
+    align-items: center;
+}
+
+.add_commentaire form button {
+    border: none;
+    background: none;
+    border: 3px solid #F2B263;
+    padding: 0.5rem;
+    color: #F2B263;
+    font-size: 200%;
+    margin: 0 72    px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.add_commentaire form button:hover {
+    background-color: #F2B263;
+    color: white;
+    border-radius: 15px;
+}
+
+.add_commentaire .form-group {
+    width: 50%;
+}
+
+.add_commentaire input[type="text"] {
+    width: 100%;
+    border: none;
+    background-color: #F2B263;
+    border-radius: 15px;
+    padding: 1rem;
+}
