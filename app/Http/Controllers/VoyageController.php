@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Voyage;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class VoyageController extends Controller
 {
+    use AuthorizesRequests;
 
     public function index() {
         $voyages = Voyage::where('en_ligne', true)

@@ -17,6 +17,7 @@
         </div>
     </section>
     <div class="like">
+    @auth
         @if($voyage->likes->contains(auth()->user()))
             <form action="{{ route('voyages.unlike', $voyage->id) }}" method="POST">
                 @csrf
@@ -24,6 +25,7 @@
                 <label for="dislike"><i class='bx bxs-heart' style='color:#f28585'></i><p>Vous aimez ce voyage</p></label>
                 <input type="submit" class="btn" id="dislike" style="display: none">
             </form>
+
         @else
             <form action="{{ route('voyages.like', $voyage->id) }}" method="POST">
                 @csrf
@@ -31,6 +33,7 @@
                 <input type="submit" class="btn" id="like" style="display: none">
             </form>
         @endif
+        @endauth
     </div>
     <div class="stats">
         <p>Nombre de likes : {{ $voyage->likes->count() }}</p>
@@ -57,7 +60,9 @@
         </section>
     </div>
     <div>
+        @if (auth()->check() && auth()->user()->can('update', $voyage))
         <a href="{{ route('etapes.create', ['voyage_id' => $voyage->id]) }}" class="btn btn-primary">Créer une étape</a>
+        @endif
     </div>
     <section class="commentaires">
         <h1>Commentaires</h1>
@@ -66,6 +71,8 @@
                 <p><strong>{{ $avis->user->name }}:</strong> <br/>{{ $avis->contenu }}</p>
             </div>
         @endforeach
+        @auth
     @include('avis.create')
+        @endauth
     </section>
 @endsection
