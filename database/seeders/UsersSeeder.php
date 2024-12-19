@@ -20,6 +20,47 @@ class UsersSeeder extends Seeder {
             'password' => Hash::make('azerty'),
             'remember_token' => Str::random(10),
         ])->create();
+
+        User::factory([
+            'name' => "axel",
+            'email' => "axel@gmail.com",
+            'email_verified_at' => now(),
+            'password' => Hash::make('azerty'),
+            'remember_token' => Str::random(10),
+        ])->create();
+
+        User::factory([
+            'name' => "quentin",
+            'email' => "quentin@gmail.com",
+            'email_verified_at' => now(),
+            'password' => Hash::make('azerty'),
+            'remember_token' => Str::random(10),
+        ])->create();
+
+        User::factory([
+            'name' => "bylel",
+            'email' => "bylel@gmail.com",
+            'email_verified_at' => now(),
+            'password' => Hash::make('azerty'),
+            'remember_token' => Str::random(10),
+        ])->create();
+
+        User::factory([
+            'name' => "loup",
+            'email' => "loup@gmail.com",
+            'email_verified_at' => now(),
+            'password' => Hash::make('azerty'),
+            'remember_token' => Str::random(10),
+        ])->create();
+
+        User::factory([
+            'name' => "lynoa",
+            'email' => "lynoa@gmail.com",
+            'email_verified_at' => now(),
+            'password' => Hash::make('azerty'),
+            'remember_token' => Str::random(10),
+        ])->create();
+
         for ($i = 1; $i <= 10; $i++) {
             User::factory()->create([
                 'name' => $name = 'user' . $i,

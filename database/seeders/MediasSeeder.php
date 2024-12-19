@@ -55,11 +55,11 @@ class MediasSeeder extends Seeder {
             ]);
         }
 
-        Media::create([
-            'titre' => "Chant Supporteurs Lensois",
-            'url' => "https://www.youtube.com/embed/T4I5xoQKnIo?si=pg-rp75lN35SZE9c",
-            'etape_id' => 1,
-            'format' => FormatMedia::VIDEO
-        ]);
+//        Media::create([
+//            'titre' => "Chant Supporteurs Lensois",
+//            'url' => "https://www.youtube.com/embed/T4I5xoQKnIo?si=pg-rp75lN35SZE9c",
+//            'etape_id' => 1,
+//            'format' => FormatMedia::VIDEO
+//        ]);
     }
 }
