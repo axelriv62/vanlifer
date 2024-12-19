@@ -57,26 +57,36 @@ footer {
 
 nav {
     display: flex;
+    position: fixed;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    background-color: #86A69D;
-    width: 100%;
+    background-color: rgba(134, 166, 157, 0.6);
+    width: 100vw;
     z-index: 1000;
+    font-size: 150%;
+    color: white;
 }
 
-.logo {
+nav .left {
     display: flex;
     align-items: center;
+    justify-content: center;
+    margin: 1rem;
+}
+
+nav .right p{
+    margin: 0;
+}
+nav .right {
+    display: flex;
+    align-items: center;
+    margin: 1rem;
 }
 
 .logo img {
-    max-width: 30px;
+    width: 2rem;
 }
 
-nav {
-    display: flex;
-}
 
 nav ul {
     list-style: none;
@@ -88,8 +98,12 @@ nav ul li {
     display: inline;
 }
 
-nav ul li a {
+nav  a {
     text-decoration: none;
-    color: #F2E8DF;
-    font-weight: bold;
+    color: white;
+    transition: all 0.2s;
+}
+
+nav a:hover {
+    color: #F28585;
 }

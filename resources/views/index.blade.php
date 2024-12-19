@@ -22,9 +22,11 @@
                 Maecenas sit amet sapien mauris. Suspendisse semper mollis tellus, sed lobortis tortor. Curabitur sit amet condimentum risus. </p>
         </div>
         <div class="right">
-
             <img src="https://baconmockup.com/300/300/" alt="Nous">
         </div>
+    </section>
+    <section class="trait">
+        <h1>Nos Vans Tours</h1>
     </section>
     <section class="voyages">
         <div class="image">
