@@ -44,4 +44,13 @@
             <button type="submit">Supprimer</button>
         </form>
     </div>
+    <div class="navigation-buttons">
+        @if($previousEtape)
+            <a href="{{ route('etapes.show', ['voyage' => $etape->voyage_id, 'etape' => $previousEtape->id]) }}" class="btn btn-primary">Étape précédente</a>
+        @endif
+
+        @if($nextEtape)
+            <a href="{{ route('etapes.show', ['voyage' => $etape->voyage_id, 'etape' => $nextEtape->id]) }}" class="btn btn-primary">Étape suivante</a>
+        @endif
+    </div>
 @endsection
