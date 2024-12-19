@@ -51,13 +51,13 @@
         @endif
     </div>
     <section class="commentaires">
+        <h1>Commentaires</h1>
         @foreach($voyage->avis as $avis)
             <div class="avis">
-                <p><strong>{{ $avis->user->name }}:</strong> {{ $avis->contenu }}</p>
+                <p><strong>{{ $avis->user->name }}:</strong> <br/>{{ $avis->contenu }}</p>
             </div>
         @endforeach
     @include('avis.create')
-
     </section>
 
 @endsection
