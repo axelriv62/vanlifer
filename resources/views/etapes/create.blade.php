@@ -1,6 +1,6 @@
 @extends('templates.app-layout')
 @section('content')
-    <h1>Créer une nouvelle étape</h1>
+    <h1>Ajout d'une étape</h1>
     <form action="{{ route('etapes.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div>
@@ -24,13 +24,13 @@
             <input type="date" id="fin" name="fin" required>
         </div>
         <div>
-            <label for="voyage_id">Voyage ID:</label>
+            <label for="voyage_id">A quel voyage ?</label>
             <input type="number" id="voyage_id" name="voyage_id" required>
         </div>
         <div>
-            <label for="medias">Images:</label>
+            <label for="medias">Une p'tite photo ?</label>
             <input type="file" id="medias" name="medias[]" multiple>
         </div>
-        <button type="submit">Créer</button>
+        <button type="submit">Ajouter</button>
     </form>
 @endsection
