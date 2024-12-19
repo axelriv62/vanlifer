@@ -3,20 +3,32 @@
 namespace App\Http\Controllers;
 
 use App\Models\Voyage;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class VoyageController extends Controller
 {
+    use AuthorizesRequests;
 
     public function index() {
-        $voyages = Voyage::all();
+        $voyages = Voyage::where('en_ligne', true)
+            ->orWhere('user_id', auth()->id())
+            ->get();
+
         return view('voyages.index', compact('voyages'));
     }
 
     public function show($id) {
-        $voyage = Voyage::findOrFail($id);
-        return view('voyages.show', compact('voyage'));
+        $voyage = Voyage::with(['etapes.medias', 'likes', 'avis'])->findOrFail($id);
+        $etapes = $voyage->etapes->take(4);
+
+        if ($etapes->count() < 4) {
+            $additionalEtapes = $voyage->etapes->skip(4)->take(4 - $etapes->count());
+            $etapes = $etapes->merge($additionalEtapes);
+        }
+
+        return view('voyages.show', compact('voyage', 'etapes'));
     }
 
     public function create() {
@@ -29,12 +41,14 @@ class VoyageController extends Controller
             'description' => 'required|string',
             'resume' => 'required|string',
             'visuel' => 'required|file|mimes:jpg,png,jpeg',
+
         ]);
 
         $voyage = new Voyage();
         $voyage->titre = $validated['titre'];
         $voyage->description = $validated['description'];
         $voyage->resume = $validated['resume'];
+        $voyage->en_ligne = false;
         $voyage->user_id = auth()->id();
 
         if ($request->hasFile('visuel')) {
@@ -94,6 +108,19 @@ class VoyageController extends Controller
     public function randomVoyages() {
         $voyages = Voyage::inRandomOrder()->take(3)->get();
         return view('index', compact('voyages'));
+    }
+
+    public function publish($id) {
+        $voyage = Voyage::findOrFail($id);
+
+        if ($voyage->user_id != auth()->id()) {
+            abort(403, 'Action non autorisée');
+        }
+
+        $voyage->en_ligne = true;
+        $voyage->save();
+
+        return redirect()->route('voyages.show', $voyage->id);
     }
 
 }

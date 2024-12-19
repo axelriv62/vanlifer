@@ -18,9 +18,9 @@ class EtapeController extends Controller
     }
 
     // Show the form for creating a new resource.
-    public function create()
+    public function create($voyage_id)
     {
-        return view('etapes.create');
+        return view('etapes.create', compact('voyage_id'));
     }
 
     public function store(Request $request) {
@@ -120,10 +120,12 @@ class EtapeController extends Controller
     }
 
 // Remove the specified resource from storage.
-    public function destroy(Etape $etape)
+    public function destroy($id)
     {
+        $etape = Etape::findOrFail($id);
+        $voyageId = $etape->voyage_id;
         $etape->delete();
-        return redirect()->route('etapes.index')->with('success', 'Étape supprimée avec succès.');
+        return redirect()->route('voyages.show', $voyageId);
     }
 
     public function delete($id)

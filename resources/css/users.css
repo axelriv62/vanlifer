@@ -1,0 +1,14 @@
+body {
+    background-color: #F2E8DF;
+    padding-top: 150px;
+}
+
+.app-info .grid .voyages-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+}

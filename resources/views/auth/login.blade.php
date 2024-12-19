@@ -66,8 +66,7 @@
     </aside>
 
     <aside class="right">
-        {{--        <img src="{{asset('img/logopicture.png')}}"> METTRE LE LOGO DE L'APPLI--}}
-        <p>LOGO</p>
+        <img class="img-land" src="{{Vite::asset('resources/images/logo.png')}}" alt="Logo">
         <script>
             const signin  = document.querySelector('.formulaireConnexion');
             const left = document.querySelector('.left');
