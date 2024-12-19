@@ -18,7 +18,15 @@
         @if ($user->mesVoyages && $user->mesVoyages->isEmpty())
             <p>Cet utilisateur n'a pas encore documenté de voyages.</p>
         @else
-            <x-voyages-list :voyages="$user->mesVoyages" />
+            @include('components.voyages-list', ['voyages' => $user->mesVoyages])
         @endif
     </div>
+
+    <div class="app-info">
+        <h2>Commentaires</h2>
+        @if ($user->avis && $user->avis->isEmpty())
+            <p>Cet utilisateur n'a pas encore laissé d'avis.</p>
+        @else
+            @include('components.avis-list', ['all_avis' => $user->avis])
+        @endif
 @endsection
