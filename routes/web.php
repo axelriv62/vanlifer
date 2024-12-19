@@ -34,6 +34,8 @@ Route::get('/dashboard', function () {
 Route::get('/avis/create/{voyage_id}/{user_id}', [AvisController::class, 'create'])->name('avis.create');
 Route::post('/avis', [AvisController::class, 'store'])->name('avis.store');
 // Routes ajoutées
+
+
 Route::resource('voyages', VoyageController::class);
 
 Route::resource('etapes', EtapeController::class);
