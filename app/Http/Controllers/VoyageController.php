@@ -10,12 +10,20 @@ class VoyageController extends Controller
 {
 
     public function index() {
-        $voyages = Voyage::all();
+        $voyages = Voyage::where('en_ligne', true)
+            ->orWhere('user_id', auth()->id())
+            ->get();
+
         return view('voyages.index', compact('voyages'));
     }
 
     public function show($id) {
         $voyage = Voyage::findOrFail($id);
+
+        if (!$voyage->en_ligne && $voyage->user_id != auth()->id()) {
+            abort(403, 'Action non autorisée');
+        }
+
         return view('voyages.show', compact('voyage'));
     }
 
@@ -29,12 +37,14 @@ class VoyageController extends Controller
             'description' => 'required|string',
             'resume' => 'required|string',
             'visuel' => 'required|file|mimes:jpg,png,jpeg',
+
         ]);
 
         $voyage = new Voyage();
         $voyage->titre = $validated['titre'];
         $voyage->description = $validated['description'];
         $voyage->resume = $validated['resume'];
+        $voyage->en_ligne = false;
         $voyage->user_id = auth()->id();
 
         if ($request->hasFile('visuel')) {
@@ -94,6 +104,19 @@ class VoyageController extends Controller
     public function randomVoyages() {
         $voyages = Voyage::inRandomOrder()->take(3)->get();
         return view('index', compact('voyages'));
+    }
+
+    public function publish($id) {
+        $voyage = Voyage::findOrFail($id);
+
+        if ($voyage->user_id != auth()->id()) {
+            abort(403, 'Action non autorisée');
+        }
+
+        $voyage->en_ligne = true;
+        $voyage->save();
+
+        return redirect()->route('voyages.show', $voyage->id);
     }
 
 }
