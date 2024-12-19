@@ -18,9 +18,9 @@ class EtapeController extends Controller
     }
 
     // Show the form for creating a new resource.
-    public function create()
+    public function create($voyage_id)
     {
-        return view('etapes.create');
+        return view('etapes.create', compact('voyage_id'));
     }
 
     public function store(Request $request) {
