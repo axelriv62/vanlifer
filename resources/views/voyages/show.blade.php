@@ -56,6 +56,9 @@
             @endfor
         </section>
     </div>
+    <div>
+        <a href="{{ route('etapes.create', ['voyage_id' => $voyage->id]) }}" class="btn btn-primary">Créer une étape</a>
+    </div>
     <section class="commentaires">
         <h1>Commentaires</h1>
         @foreach($voyage->avis as $avis)
