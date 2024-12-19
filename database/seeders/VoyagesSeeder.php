@@ -16,7 +16,7 @@ class VoyagesSeeder extends Seeder {
                 'description' => "Quelques-unes des plus grandes villes du nord de l'Europe. J'adore voyager, mais j'ai un petit souci, je décris beaucoup trop les villes que je visite. Mais que vous, je ne peux m'en empêcher. Et quand j'essaie de faire court, il y a toujours quelqu'un pour rajouter des détails....",
                 'resume' => "Quelques-unes des plus grandes villes du nord de l'Europe. J'adore voyager, mais j'ai un petit souci, je décris beaucoup trop les villes que je visite. Mais que vous, je ne peux m'en empêcher. Et quand j'essaie de faire court, il y a toujours quelqu'un pour rajouter des détails....",
                 'en_ligne' => true,
-                'visuel' => env('APP_URL')."/storage/user1/europe-nord.png",
+                'visuel' => env('APP_URL')."/storage/user1/Amsterdam1.jpg",
                 'user_id' => 1,
             ],
             [
@@ -24,7 +24,7 @@ class VoyagesSeeder extends Seeder {
                 'description' => "Découverte des merveilles de l'Europe de l'Est. Un voyage à travers les cultures et les paysages diversifiés.",
                 'resume' => "Découverte des merveilles de l'Europe de l'Est.",
                 'en_ligne' => true,
-                'visuel' => env('APP_URL')."/storage/user1/europe-est.png",
+                'visuel' => env('APP_URL')."/storage/user1/Anvers1.jpg",
                 'user_id' => 1,
             ],
             [
@@ -32,7 +32,7 @@ class VoyagesSeeder extends Seeder {
                 'description' => "Exploration des paysages et des cultures vibrantes de la Norvège.",
                 'resume' => "Exploration des paysages et des cultures vibrantes de la Norvège.",
                 'en_ligne' => true,
-                'visuel' => env('APP_URL')."/storage/app/public/user1/norvege.jpg",
+                'visuel' => env('APP_URL')."/storage/user1/copenhague.jpg",
                 'user_id' => 1,
             ],
         ];
