@@ -1,0 +1,32 @@
+body {
+    padding-top: 150px;
+    background-color: #F2E8DF ;
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form h1 {
+    margin: 1.5rem;
+    color: #86a69d;
+}
+
+.form input, .form textarea {
+    width: 100%;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.form div {
+    margin: 1.5rem;
+}
+
+.form label img {
+    width: 4rem;
+    aspect-ratio: 1/1;
+}
