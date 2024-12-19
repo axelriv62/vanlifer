@@ -31,4 +31,4 @@ Route::get('/profil', function () {
     return redirect()->route('users.show', ['id' => auth()->id()]);
 });
 Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show')->middleware('auth');
-Route::get('/users-with-active-voyages', [UserController::class, 'usersWithActiveVoyages'])->name('users.actifs')->middleware('auth');
+Route::get('/users-actifs', [UserController::class, 'usersWithActiveVoyages'])->name('users.actifs')->middleware('auth');

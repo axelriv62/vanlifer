@@ -56,4 +56,8 @@ class User extends Authenticatable {
     public function likes() {
         return $this->belongsToMany(Voyage::class, 'likes');
     }
+
+    public function voyages() {
+        return $this->hasMany(Voyage::class);
+    }
 }
