@@ -5,13 +5,13 @@
             <a href="/"><img class="logo" src="{{Vite::asset('resources/images/logo_blanc.png')}}" alt="Logo"></a>
         </div>
         <ul>
-            <li><a href="/voyages">Voyages</a></li>
-            <li><a href="/voyages/create">Créer un voyage</a></li>
+            <li><a href="{{env("APP_URL")}}/voyages">Voyages</a></li>
+            <li><a href="{{env("APP_URL")}}/voyages/create">Créer un voyage</a></li>
         </ul>
     </div>
     <div class="right">
         @auth
-            <p><a href="/profil">{{ Auth::user()->name }}</p>
+            <p><a href="{{env("APP_URL")}}/profil">{{ Auth::user()->name }}</p>
             <div>
                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="background:none;border:none;color:inherit;padding:0;font:inherit;cursor:pointer;">Se déconnecter</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -19,7 +19,7 @@
                 </form>
             </div>
         @else
-            <p><a href="/login">Connexion</a></p>
+            <p><a href="{{env("APP_URL")}}/login">Connexion</a></p>
         @endauth
     </div>
 </nav>
