@@ -227,3 +227,10 @@ body {
     margin: 1rem;
     color: #86A69D;
 }
+
+.stats p {
+    color: #86A69D;
+    font-size: 150%;
+    font-weight: bold;
+    margin: 1rem;
+}
