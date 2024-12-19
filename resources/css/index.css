@@ -130,3 +130,7 @@
     margin: 0 auto;
     margin-top: -3rem;
 }
+
+.presentation .right img{
+    width: 30rem;
+}
