@@ -23,7 +23,7 @@
             <p>Nous sommes Anaëlle Delahaye, Lynoa Queva, Tessia Devin--Lemoine, Quentin Tripognez, Axel Rivière, Bylel Bourhim. Un groupe d'ami fan de la VanLife. Nous avons décidé de créer l'application Vanlifer pour permettre à tous les fans comme nous de partager leurs aventures </p>
         </div>
         <div class="right">
-            <img src="https://baconmockup.com/300/300/" alt="Nous">
+            <img src="{{Vite::asset('resources/images/team.jpg')}}" alt="Nous">
         </div>
     </section>
     <section class="trait">
