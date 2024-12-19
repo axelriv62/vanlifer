@@ -57,12 +57,15 @@
                     </div>
                 </div>
                 <div>
-                    <a href="{{ route('etapes.edit', $etape->id) }}">Modifier</a>
-                    <form action="{{ route('etapes.destroy', $etape->id) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit">Supprimer</button>
-                    </form>
+                    @if (auth()->check() && auth()->user()->id === $etape->voyage->user_id)
+                        <a href="{{ route('etapes.edit', $etape->id) }}">Modifier</a>
+
+                        <form action="{{ route('etapes.destroy', $etape->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit">Supprimer</button>
+                        </form>
+                    @endif
                 </div>
             </div>
     </section>
