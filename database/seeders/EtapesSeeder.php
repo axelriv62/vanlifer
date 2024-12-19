@@ -102,7 +102,7 @@ class EtapesSeeder extends Seeder {
             ],
             [
                 'titre' => "Nourrisage des rennes",
-                'resume' => "Rome est la capitale de l'Italie.",
+                'resume' => "Activité de nourrisage de renne.",
                 'description' => "Le réveil est assez glacial, il a fait très froid durant la nuit. Heureusement, nous avons préparé de nombreuses couvertures pour se tenir au chaud. Notre journée commence avec la visite de la cathédrale arctique, avec une architecture atypique néanmoins l’effet de surprise est beaucoup moins que celui auquel nous nous entendions. Pour l’après-midi, nous avons réservé une visite guidée pour nourrir des rennes. Attachant et impressionnant, c’était comme vivre un moment suspendu dans le temps, avec les animaux. La nuit tombée le ciel est assez dégagé pour voir les aurores boréales briller dans le ciel. Un événement si unique qui restera gravé dans nos mémoires. Le retour au van est assez difficile, car le froid nous paralyse le corps de plus en plus.",
                 'debut' => "2024-12-20",
                 'fin' => "2024-12-22",
