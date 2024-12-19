@@ -4,6 +4,7 @@ use App\Http\Controllers\AvisController;
 use App\Http\Controllers\VoyageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EtapeController;
+use App\Http\Controllers\UserController;
 
 // Routes données à l'origine
 
@@ -39,3 +40,7 @@ Route::get('/etapes/{etape}/delete', [EtapeController::class, 'delete'])->name('
 Route::post('voyages/{id}/like', [VoyageController::class, 'like'])->name('voyages.like');
 Route::delete('voyages/{id}/like', [VoyageController::class, 'unlike'])->name('voyages.unlike');
 
+Route::get('/profil', function () {
+    return redirect()->route('users.show', ['id' => auth()->id()]);
+});
+Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show');
