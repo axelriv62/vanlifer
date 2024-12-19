@@ -9,11 +9,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 5px solid #F28585;
+    border: 5px solid #86A69D;
     border-radius: 15px;
     padding: 2rem;
-    background-color: #86A69D;
-    box-shadow: 18px 18px 0px -1px #F28585;
+    background-color: #F2E8DF;
+    box-shadow: 18px 18px 0px -1px #86A69D;
     height: 80vh;
     justify-content: center;
 }
@@ -33,7 +33,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #F2B263;
+    background-color: #F2E8DF;
     border-radius: 15px 0 0 15px;
     transition: all 0.8s ease;
     height: 100vh;
@@ -82,6 +82,18 @@ select {
 
 select {
     width: 100%;
+}
+
+input[type=submit] {
+    background-color: #86A69D;
+    color: white;
+    font-weight: bold;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    scale: 1.05;
 }
 
 .swapped_right {

@@ -1,0 +1,106 @@
+body {
+    background-color: #F2E8DF;
+}
+
+h2 {
+    width: 100%;
+    text-align: center;
+    color: #86A69D;
+    font-weight: bold;
+}
+
+.banner {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+.banner p {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    width: 100%;
+    text-align: center;
+    color: #F2B263;
+    font-size: 250%;
+    font-weight: bold;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.banner img{
+    width: 100%;
+    object-fit: cover;
+    filter: blur(10px);
+}
+
+.background {
+    background-image: url("../images/trait3.png");
+    background-repeat: no-repeat;
+    background-size: 100% 150%;
+}
+
+.background .content {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.description {
+    margin: 5rem;
+    color: #f28585;
+    font-size: 150%;
+    width: 50%;
+    text-align: center;
+}
+
+.navigation-buttons {
+    font-size: 250%;
+}
+
+.navigation-buttons .left {
+    position: absolute;
+    left: 5%;
+    top: 50%;
+}
+
+.navigation-buttons .right {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    width: max-content;
+}
+
+.date {
+    display: flex;
+    width: 50%;
+    justify-content: space-evenly;
+    text-align: center;
+    color: #86A69D;
+    font-weight: bold;
+    font-size: 120%;
+    align-items: center;
+}
+
+.image {
+    width: 100%;
+    display: flex;
+}
+
+.image div {
+    width: 100%;
+    display: grid;
+    grid-template-columns:1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    grid-gap: 2rem;
+}
+
+.image img {
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+    border-radius: 15px;
+}
