@@ -17,6 +17,7 @@ h2 {
     width: 95%;
     margin: 0 auto;
     text-align: center;
+    margin-bottom: 3rem;
 }
 
 .voyage-item h3{
@@ -28,6 +29,9 @@ h2 {
 
 .voyage-item img{
     border-radius: 15px 15px 0 0 ;
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
 }
 
 .voyage-item {

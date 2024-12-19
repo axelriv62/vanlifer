@@ -1,0 +1,84 @@
+body {
+    padding-top: 150px;
+    background-color: #F2E8DF ;
+}
+
+.form {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    margin: auto;
+    justify-content: space-evenly;
+}
+.form .left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form h1 {
+    margin: 1.5rem;
+    color: #86a69d;
+}
+
+.form input, .form textarea {
+    width: 100%;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.form div {
+    margin: 1.5rem;
+}
+
+.form label img {
+    width: 4rem;
+    aspect-ratio: 1/1;
+}
+
+.form .left button {
+    width: 100%;
+    background-color: #86A69D;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+
+.form .left button:hover {
+    background-color: #779189;
+    scale: 1.05;
+}
+
+dotlottie-wc {
+    width: 150%;
+}
+
+.medias {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.media {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete label {
+    display: flex;
+    flex-direction: row;
+}
+.form img {
+    border-radius: 15px;
+}
+.delete label input {
+    margin : 0  1rem;
+}

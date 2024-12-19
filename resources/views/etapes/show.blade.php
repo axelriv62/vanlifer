@@ -56,14 +56,14 @@
                         @endforeach
                     </div>
                 </div>
-                <div>
+                <div class="btn">
                     @if (auth()->check() && auth()->user()->id === $etape->voyage->user_id)
-                        <a href="{{ route('etapes.edit', $etape->id) }}">Modifier</a>
+                        <a href="{{ route('etapes.edit', $etape->id) }}" class="yellow_btn">Modifier</a>
 
                         <form action="{{ route('etapes.destroy', $etape->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit">Supprimer</button>
+                            <button type="submit" class="green_btn">Supprimer</button>
                         </form>
                     @endif
                 </div>

@@ -61,7 +61,7 @@
     </div>
     <div>
         @if (auth()->check() && auth()->user()->can('update', $voyage))
-        <a href="{{ route('etapes.create', ['voyage_id' => $voyage->id]) }}" class="btn btn-primary">Créer une étape</a>
+        <a href="{{ route('etapes.create', ['voyage_id' => $voyage->id]) }}" class="btn btn-primary yellow_btn">Créer une étape</a>
         @endif
     </div>
     <section class="commentaires">
