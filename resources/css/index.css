@@ -1,7 +1,6 @@
 
 .banner {
     position: relative;
-    margin-bottom: 5rem;
 }
 .content img {
     height: 80vh;
@@ -22,25 +21,26 @@
 }
 
 .content .text h1{
-    color: #F2B263;
+    color: white;
 }
 
 .content .text p {
     color: #F28585;
+    text-align: center;
 }
 
 .presentation {
     display: flex;
-    width: 60%;
+    width: 70%;
     margin: 0 auto;
-    padding: 1rem 0;
+    padding: 80px;
     justify-content: space-evenly;
     align-items: center;
     border-radius: 15px;
 }
 
 .presentation .left {
-    width: 50%;
+    width: 40%;
     text-align: justify;
 }
 
@@ -67,6 +67,20 @@
     bottom: -40%;
     translate: 50% 100%;
     transform: rotate(-3deg);
+}
+
+.trait {
+    background-image: url("../images/trait2.png");
+    background-size:105% 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.trait h1 {
+    color: #F28585;
 }
 
 .voyages {
