@@ -4,40 +4,9 @@ Groupe but24_groupe6 - Power Rangers
 
 ## Version initiale
 
-Pour lancer avec succès une première version de votre site web pendant la phase de développement, il faut exécuter les
-commandes suivantes sur votre machine de développement :
+Pour lancer avec succès notre application, vous devez executer les commandes suivantes :
 
 ```shell
-# A partir de la racine de votre projet
-
-# installation des dépendances
-composer install 
-
-# installation des outils pour la construction du front
-npm install 
-# Modification du front en cours de développement
-npm run dev
-# Construction du front pour la version exploitation
-npm run build
-
-# liaison avec le SGBD et la base de données utilisée
-cp .env.example .env
-
-
-#########################################################
-#
-# Ici il faut modifier en particulier les variables suivantes
-#
-DB_CONNECTION=sqlite
-# DB_HOST=127.0.0.1
-# DB_PORT=3306
-# DB_DATABASE=marathon_24
-# DB_USERNAME=root
-# DB_PASSWORD=
-#
-#
-#########################################################
-
 # Génération de la clé initiale
 
 php artisan key:generate
