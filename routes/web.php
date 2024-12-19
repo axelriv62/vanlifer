@@ -42,6 +42,7 @@ Route::get('/etapes/create/{voyage_id}', [EtapeController::class, 'create'])->na
 
 Route::post('voyages/{id}/like', [VoyageController::class, 'like'])->name('voyages.like');
 Route::delete('voyages/{id}/like', [VoyageController::class, 'unlike'])->name('voyages.unlike');
+Route::post('/voyages/{id}/publish', [VoyageController::class, 'publish'])->name('voyages.publish');
 
 Route::get('/profil', function () {
     return redirect()->route('users.show', ['id' => auth()->id()]);

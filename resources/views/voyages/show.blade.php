@@ -68,5 +68,4 @@
         @endforeach
     @include('avis.create')
     </section>
-
 @endsection

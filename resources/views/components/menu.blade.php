@@ -11,7 +11,7 @@
     </div>
     <div class="right">
         @auth
-            <p>Bonjour, <a href="/profil">{{ Auth::user()->name }}</p>
+            <p><a href="/profil">{{ Auth::user()->name }}</p>
             <div>
                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="background:none;border:none;color:inherit;padding:0;font:inherit;cursor:pointer;">Se déconnecter</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

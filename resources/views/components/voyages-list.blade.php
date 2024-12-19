@@ -9,6 +9,12 @@
                     <h3>{{ $voyage->titre }}</h3>
                 </a>
             </div>
+            @if(!$voyage->en_ligne && $voyage->user_id == auth()->id())
+                <form action="{{ route('voyages.publish', $voyage->id) }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-primary">Publier</button>
+                </form>
+            @endif
         @endforeach
     @endif
 </div>
