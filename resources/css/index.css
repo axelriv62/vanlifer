@@ -120,3 +120,13 @@
     translate: 50% 100%;
     transform: rotate(-3deg);
 }
+
+.anim {
+    width: 100%;
+}
+
+.presentation .left dotlottie-wc {
+    width: 40%;
+    margin: 0 auto;
+    margin-top: -3rem;
+}

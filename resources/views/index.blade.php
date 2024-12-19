@@ -16,10 +16,11 @@
     <section class="presentation">
         <div class="left">
             <h1>Qui sommes-nous ?</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Curabitur eget risus eu urna suscipit ultrices. Maecenas ante nunc, aliquet eget sagittis vitae, egestas nec diam.
-                Cras vel ipsum aliquam, imperdiet ante id, finibus sapien. Suspendisse vel urna a erat fringilla imperdiet quis eget quam.
-                Maecenas sit amet sapien mauris. Suspendisse semper mollis tellus, sed lobortis tortor. Curabitur sit amet condimentum risus. </p>
+            <div class="anim">
+                <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.3.0/dist/dotlottie-wc.js" type="module"></script>
+                <dotlottie-wc src="https://lottie.host/9b29c8cd-d762-499b-bff3-f3d6c146cce8/L8qJlEDkT1.lottie" autoplay loop></dotlottie-wc>
+            </div>
+            <p>Nous sommes Anaëlle Delahaye, Lynoa Queva, Tessia Devin--Lemoine, Quentin Tripognez, Axel Rivière, Bylel Bourhim. Un groupe d'ami fan de la VanLife. Nous avons décidé de créer l'application Vanlifer pour permettre à tous les fans comme nous de partager leurs aventures </p>
         </div>
         <div class="right">
             <img src="https://baconmockup.com/300/300/" alt="Nous">
