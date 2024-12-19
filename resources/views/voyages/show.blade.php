@@ -50,4 +50,14 @@
             </form>
         @endif
     </div>
+    <section class="commentaires">
+        @foreach($voyage->avis as $avis)
+            <div class="avis">
+                <p><strong>{{ $avis->user->name }}:</strong> {{ $avis->contenu }}</p>
+            </div>
+        @endforeach
+    @include('avis.create')
+
+    </section>
+
 @endsection

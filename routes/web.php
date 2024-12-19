@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AvisController;
 use App\Http\Controllers\VoyageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EtapeController;
@@ -26,6 +27,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->name("dashboard") -> middleware('auth');
 
+
+Route::get('/avis/create/{voyage_id}/{user_id}', [AvisController::class, 'create'])->name('avis.create');
+Route::post('/avis', [AvisController::class, 'store'])->name('avis.store');
 // Routes ajoutées
 Route::resource('voyages', VoyageController::class);
 
