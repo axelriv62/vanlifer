@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class UserController extends Controller {
 
     public function show($id) {
-        $user = User::with('mesVoyages')->findOrFail($id);
+        $user = User::with(['mesVoyages', 'avis.voyage'])->findOrFail($id);
         return view('users.show', compact('user'));
     }
 

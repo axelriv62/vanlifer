@@ -6,5 +6,5 @@
 
 @section('content')
     <h1>Index des voyages</h1>
-    <x-voyages-list :voyages="$voyages" />
+    @include('components.voyages-list', ['voyages' => $voyages])
 @endsection
