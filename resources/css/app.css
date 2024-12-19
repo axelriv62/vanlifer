@@ -66,6 +66,7 @@ nav {
     font-size: 30px;
     height: 20vh;
     color: white;
+    top: 0;
     transition: all 0.2s ease;
 }
 
